@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Challenges\_16March2024.cs" />
+    <Compile Remove="Challenges\_18March2024.cs" />
+    <Compile Remove="Challenges\_19March2024.cs" />
+  </ItemGroup>
+
 </Project>
