@@ -58,6 +58,7 @@ namespace Algorithms.UnitTests.Challenges
 
         [Theory]
         [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7 }, 3, new[] { 5, 6, 7, 1, 2, 3, 4 })]
+        [InlineData(new[] { 1 }, 3, new[] { 1 })]
         public void RotateInRight_ShouldMove_ArrayElementsToRight_KPositions(int[] input, int k, int[] expected)
         {
             var sut = new _18March2024();
@@ -85,6 +86,12 @@ namespace Algorithms.UnitTests.Challenges
                 new List<int> { 1, 2, 3, 4, 5, 6, 7 },
                 3,
                 new List<int> { 4, 5, 6, 7, 1, 2, 3 }
+            };
+            yield return new object[]
+            {
+                new List<int> { 1 },
+                3,
+                new List<int> { 1 }
             };
         }
     }

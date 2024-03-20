@@ -104,16 +104,17 @@ namespace Algorithms.UnitTests.Challenges
         }
 
         [Theory]
-        [InlineData(new[] { 3, 3 }, new[] { 3 })]
-        [InlineData(new[] { 1, 1, 2 }, new[] { 1, 2 })]
-        [InlineData(new[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 }, new[] { 0, 1, 2, 3, 4 })]
-        public void RemoveDuplicates_ShouldDuplicateZeroValuesInArray(int[] input, int[] expected)
+        [InlineData(new[] { 3, 3 }, 1)]
+        [InlineData(new[] { 1, 1, 2 }, 2)]
+        [InlineData(new[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 }, 5)]
+        [InlineData(new int[] { }, 0)]
+        public void RemoveDuplicates_ShouldRemoveDuplicatesAndReturnNumberOfElementInTheNewArray(int[] input, int expected)
         {
             var sut = new _15March2024();
-            sut.RemoveDuplicates(input);
-            for (var i = 0; i < expected.Length; i++)
-                Assert.Equal(expected[i], input[i]);
+            var actual = sut.RemoveDuplicates(input);
+            Assert.Equal(expected, actual);
         }
+        
 
         [Theory]
         [InlineData(
@@ -136,6 +137,10 @@ namespace Algorithms.UnitTests.Challenges
             new[] { 0 }, 0,
             new[] { 1 }, 1,
             new[] { 1 })]
+        [InlineData(
+            new int[] { 1 }, 1,
+            new int[] {}, 0,
+            new int[] {1})]
 
         public void MergeTwoArrays_ShouldReturnMergedArray_AndKeepIndexItem(
             int[] list1, int m, int[] list2, int n, int[] expected)
@@ -143,11 +148,8 @@ namespace Algorithms.UnitTests.Challenges
             var sut = new _15March2024();
 
             sut.Merge(list1, m, list2, n);
-
-            for (var i = 0; i < list1.Length; i++)
-                Assert.Equal(expected[i], list1[i]);
+            
+            Assert.Equal(expected, list1);
         }
-
-        
     }
 }
