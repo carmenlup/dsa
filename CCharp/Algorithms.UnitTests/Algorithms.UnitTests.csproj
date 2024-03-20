@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <Compile Remove="Challenges\_16March2024Test.cs" />
-    <Compile Remove="Challenges\_18March2024Tests.cs" />
     <Compile Remove="Challenges\_19March2024Tests.cs" />
   </ItemGroup>
 
